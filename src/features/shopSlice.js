@@ -21,6 +21,14 @@ export const shopSlice = createSlice({
     setShopItems: (state, { payload }) => {
       state.items = payload
     },
+    incrementQuantity: (state, { payload }) => {
+      const item = state.cart.find((item) => item.id === payload)
+      item.quantity = item.quantity + 1
+    },
+    decrementQuantity: (state, { payload }) => {
+      const item = state.cart.find((item) => item.id === payload)
+      item.quantity = item.quantity - 1
+    },
   },
   extraReducers: {
     [getUserCart.pending]: (state) => {
@@ -36,7 +44,7 @@ export const shopSlice = createSlice({
   },
 })
 
-export const { setShopItems } = shopSlice.actions
+export const { setShopItems, incrementQuantity, decrementQuantity } = shopSlice.actions
 
 export const selectShopItems = (state) => state.shop.items
 export const selectShopCart = (state) => state.shop.cart
