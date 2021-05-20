@@ -7,7 +7,6 @@ import UserCart from 'components/UserCart/UserCart'
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'))
 const ProductPage = lazy(() => import('pages/ProductPage/ProductPage'))
-const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'))
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'))
 const NotFound = lazy(() => import('pages/NotFound/NotFound'))
 
@@ -21,7 +20,6 @@ const Routes = () => {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route exact path='/product/:name' component={ProductPage} />
-          <Route exact path='/login' component={LoginPage} />
           <Route exact path='/signup' component={RegisterPage} />
           <Route exact path='*' component={NotFound} />
         </Switch>
